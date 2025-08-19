@@ -13,8 +13,6 @@ def property_list(request):
     serializer = PropertySerializer(properties, many=True)
     return Response(serializer.data)
 
-from django.http import JsonResponse
-
 def cache_metrics(request):
     metrics = get_redis_cache_metrics()
     return JsonResponse(metrics)
