@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'property_db',
-        'USER': 'property_user',
-        'PASSWORD': 'property_pass',
-        'HOST': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'kali',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
@@ -89,7 +89,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://redis:6379/1',
+        'LOCATION': 'redis://localhost:6379/0',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }

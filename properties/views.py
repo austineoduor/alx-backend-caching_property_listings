@@ -1,10 +1,9 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.views.decorators.cache import cache_page
-from django.utils.decorators import method_decorator
+# from django.utils.decorators import method_decorator
 from django.http import JsonResponse
-from .models import Property
-from .utils import get_all_properties
+from .utils import get_all_properties,get_redis_cache_metrics
 from .serializers import PropertySerializer
 
 @cache_page(60 * 15) # 15 minutes
@@ -12,4 +11,10 @@ from .serializers import PropertySerializer
 def property_list(request):
     properties = get_all_properties()
     serializer = PropertySerializer(properties, many=True)
-    return JsonResponse(serializer.data)
+    return Response(serializer.data)
+
+from django.http import JsonResponse
+
+def cache_metrics(request):
+    metrics = get_redis_cache_metrics()
+    return JsonResponse(metrics)
