@@ -15,4 +15,4 @@ def property_list(request):
 
 def cache_metrics(request):
     metrics = get_redis_cache_metrics()
-    return JsonResponse(metrics)
+    return JsonResponse({metrics})
