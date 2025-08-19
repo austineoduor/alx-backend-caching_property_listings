@@ -32,6 +32,7 @@ def get_redis_cache_metrics():
         total = hits + misses
 
         # Calculate hit ratio
+        # if total_requests > 0 else 0
         hit_ratio = (hits / total) if total > 0 else 0.0
 
         metrics = {
